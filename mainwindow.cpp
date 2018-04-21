@@ -1,3 +1,4 @@
+
 #include "keyhandler.cpp"
 
 
@@ -27,6 +28,8 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     }
 
 }
+
+
 
 ClickableLabel::ClickableLabel(const QString &text, QWidget *parent)
     :QLabel(parent)

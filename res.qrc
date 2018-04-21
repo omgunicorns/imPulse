@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>Images/Facebook-Download-PNG.png</file>
+        <file>Images/q.bmp</file>
+        <file>Images/qw.jpg</file>
+    </qresource>
+</RCC>
