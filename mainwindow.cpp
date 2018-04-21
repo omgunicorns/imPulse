@@ -1,9 +1,30 @@
 #include "keyhandler.cpp"
 #include <vector>
+
+#define DEFAULT_W 64
+#define DEFAULT_H 128
+#define DEFAULT_SCALE 0.25
 void notePressed(QLabel *label, QString colcode)
 {
     label->setStyleSheet("QLabel { background-color: "+colcode+";  margin:5px; border-radius:5px; border: 1px solid grey; }");
 
+}
+
+QLabel* newNote(MainWindow *parent, int x, int y, bool isDies = false)
+{
+    QLabel *label = new QLabel("", parent);
+    if(isDies)
+    {
+        label->setGeometry(x, y, DEFAULT_W * (1 - DEFAULT_SCALE), (DEFAULT_H / 2) * (1 + DEFAULT_SCALE));
+        label->setStyleSheet("background-color: black;  margin:5px; border-radius:5px; border: 1px solid grey;");
+    }
+    else
+    {
+        label->setGeometry(x, y, DEFAULT_W, DEFAULT_H);
+        label->setStyleSheet("background-color: white;  margin:5px; border-radius:5px; border: 1px solid grey;");
+    }
+    label->show();
+    return label;
 }
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -15,22 +36,14 @@ MainWindow::MainWindow(QWidget *parent) :
     int x = 20, y = 260;
 
     for(int i = 0; i < 10; ++i){
-        QLabel *label = new QLabel("", this);
-        label->setGeometry(x, y, 64, 128);
+        notes.push_back(newNote(this, x, y));
         x += 64;
-        label->setStyleSheet("background-color: white;  margin:5px; border-radius:5px; border: 1px solid grey;");
-        label->show();
-        notes.push_back(label);
     }
     x = 20 + 32 + 8, y = 260;
     for(int i = 0; i < 7; ++i)
     {
-        QLabel *label = new QLabel("", this);
-        label->setGeometry(x, y, 64 - 16, 64 + 16);
+        semiNotes.push_back(newNote(this, x, y, true));
         x += 64;
-        label->setStyleSheet("background-color: black;  margin:5px; border-radius:5px; border: 1px solid grey;");
-        label->show();
-        semiNotes.push_back(label);
         if(i == 1 || i == 4)
             x+=64;
     }
