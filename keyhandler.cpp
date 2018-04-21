@@ -7,16 +7,14 @@
 #include <QtMultimedia/QSound>
 
 #include "etgenerator.cpp"
-
+#include <QTimer>
 void KeyHandler(QKeyEvent* event){
     QKeyEvent* e = static_cast<QKeyEvent*>(event);
-
     double vol = 0.1;
 
     // ноты по частотам: https://pages.mtu.edu/~suits/notefreqs.html
 
     switch (e->key()){
-
        case Qt::Key_A: ETGen(0.2, 130.81, vol); break;
        case Qt::Key_W: ETGen(0.2, 138.59, vol); break;
        case Qt::Key_S: ETGen(0.2, 146.83, vol); break;
