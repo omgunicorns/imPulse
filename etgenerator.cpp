@@ -36,3 +36,11 @@ void ETGen(double dur, double freq, double vol)
     audio->setVolume(vol);
     audio->start(input);
 }
+
+void CTGen(double dur, double freq, double vol){
+    ETGen(dur, freq-60, vol/8);
+    ETGen(dur, freq-30, vol/4);
+    ETGen(dur, freq, vol);
+    ETGen(dur, freq+30, vol/4);
+    ETGen(dur, freq+60, vol/8);
+}

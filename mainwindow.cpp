@@ -19,8 +19,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     if (event->type()==QEvent::KeyPress) {
