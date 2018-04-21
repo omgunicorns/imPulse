@@ -28,7 +28,8 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     etgenerator.cpp \
-    keyhandler.cpp
+    keyhandler.cpp \
+    etgenerator.cpp
 
 HEADERS += \
         mainwindow.h
