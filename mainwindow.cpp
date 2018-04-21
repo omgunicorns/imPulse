@@ -1,12 +1,4 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
-
-#include <array>
-#include <QPixmap>
-#include <QMessageBox>
-#include <QKeyEvent>
-#include <QtMultimedia/QSound>
-#include <QColor>
+#include "keyhandler.cpp"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -14,8 +6,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     QPixmap pix(":/res/Images/Facebook-Download-PNG.png");
-    ClickableLabel *DO = new ClickableLabel("", ui->noteDO);
-    DO->setPixmap(pix.scaled(64, 128, Qt::KeepAspectRatio));
+    ClickableLabel *c_label = new ClickableLabel("", ui->label);
+    int w = ui->label->width();
+    int h = ui->label->height();
+    c_label->setPixmap(pix.scaled(w, h, Qt::KeepAspectRatio));
 }
 
 MainWindow::~MainWindow()
@@ -23,22 +17,17 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     if (event->type()==QEvent::KeyPress) {
-            QKeyEvent* key = static_cast<QKeyEvent*>(event);
-            //QMessageBox::information(this, "zag", "text");
-
-            switch (key->key()){
-                case Qt::Key_A:
-                    QSound::play(":/music/wavs/1.wav");
-
-//                    QMessageBox::information(this, "zag", "text");
-                    break;
-            }
+        KeyHandler(event);
     }
 
 }
+
+
 
 ClickableLabel::ClickableLabel(const QString &text, QWidget *parent)
     :QLabel(parent)

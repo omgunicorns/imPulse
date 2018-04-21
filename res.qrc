@@ -4,19 +4,4 @@
         <file>Images/q.bmp</file>
         <file>Images/qw.jpg</file>
     </qresource>
-    <qresource prefix="/music">
-        <file>wavs/1.wav</file>
-        <file>wavs/2.wav</file>
-        <file>wavs/3.wav</file>
-        <file>wavs/4.wav</file>
-        <file>wavs/5.wav</file>
-        <file>wavs/6.wav</file>
-        <file>wavs/7.wav</file>
-        <file>wavs/8.wav</file>
-        <file>wavs/9.wav</file>
-        <file>wavs/10.wav</file>
-        <file>wavs/11.wav</file>
-        <file>wavs/12.wav</file>
-        <file>wavs/13.wav</file>
-    </qresource>
 </RCC>

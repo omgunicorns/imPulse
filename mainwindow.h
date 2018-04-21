@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include <QLabel>
-#include <QtMultimedia/QSound>
 
 namespace Ui {
 class MainWindow;
@@ -33,28 +32,9 @@ Q_OBJECT
 public:
     explicit ClickableLabel(const QString& text="", QWidget* parent=0);
     ~ClickableLabel();
-
 signals:
     void clicked();
-
 protected:
     void mousePressEvent(QMouseEvent* event);
 };
-
-class note
-{
-
-public:
-    explicit note();
-    ~note();
-
-    void play();
-
-private:
-    ClickableLabel *cLabel = nullptr;
-    QString sound;
-
-};
-
-
-#endif // MAINWINDOW_H
+#endif
